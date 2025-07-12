@@ -1,0 +1,8 @@
+# Terraform
+.terraform/         # local plugin, provider, and state cache
+.terraform.lock.hcl # optional: keep this if you want consistent versions
+terraform.tfstate
+terraform.tfstate.backup
+crash.log
+*.tfplan
+*.tfvars            # if it contains secrets (e.g., credentials)
