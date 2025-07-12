@@ -6,6 +6,13 @@ app = FastAPI()
 counter = Counter("app_requests_total", "Total requests to the app")
 
 
+@app.middleware("http")
+async def count_requests(request, call_next):
+    counter.inc()
+    response = await call_next(request)
+    return response
+
+
 @app.get("/health", status_code=status.HTTP_200_OK)
 def health():
     return {"status": "ok"}
